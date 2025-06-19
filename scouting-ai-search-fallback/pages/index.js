@@ -9,10 +9,10 @@ export default function PlayerReport() {
     setLoading(true);
     setReport("");
     const res = await fetch("/api/generateReport", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ playerName }),
-    });
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ playerName: form.name }),
+});
     const data = await res.json();
     if (data.report) setReport(data.report);
     else setReport("Failed to get report.");
